@@ -1,0 +1,301 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Kadosh Gestão em SST</title>
+
+  <style>
+    :root {
+      --azul-escuro: #0B3C6D;
+      --azul-medio: #0F5FA6;
+      --azul-claro: #1E7ACB;
+      --verde: #4FAF57;
+      --verde-claro: #7EDC8A;
+      --cinza-bg: #F4F6F9;
+      --cinza-texto: #2F2F2F;
+    }
+
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Segoe UI', Arial, sans-serif;
+    }
+
+    body {
+      background: #fff;
+      color: var(--cinza-texto);
+      line-height: 1.7;
+    }
+
+    /* HEADER */
+    header {
+      position: fixed;
+      top: 0;
+      width: 100%;
+      z-index: 1000;
+      background: linear-gradient(90deg, var(--azul-escuro), var(--azul-medio));
+      padding: 20px 10%;
+      display: flex;
+      align-items: center;
+      justify-content: space-between;
+    }
+
+    header img {
+      height: 60px;
+    }
+
+    nav a {
+      color: #fff;
+      text-decoration: none;
+      margin-left: 30px;
+      font-weight: 600;
+      font-size: 0.95rem;
+    }
+
+    /* HERO */
+    .hero {
+      padding: 160px 10% 120px;
+      background: linear-gradient(rgba(11,60,109,0.85), rgba(15,95,166,0.85)), url('fundo-kadosh-2d.png');
+      background-size: cover;
+      background-position: center right;
+      background-repeat: no-repeat;
+      color: #fff;
+      display: grid;
+      grid-template-columns: 1.2fr 0.8fr;
+      gap: 60px;
+      align-items: center;
+      overflow: hidden;
+    }
+
+    .hero video {
+      position: absolute;
+      top: 0;
+      left: 0;
+      width: 100%;
+      height: 100%;
+      object-fit: cover;
+      z-index: 0;
+    }
+
+    .hero::after {
+      content: "";
+      position: absolute;
+      inset: 0;
+      background: linear-gradient(135deg, rgba(11,60,109,0.9), rgba(30,122,203,0.9));
+      z-index: 1;
+    }
+
+    .hero > div {
+      position: relative;
+      z-index: 2;
+    }
+
+    .hero h1 {
+      font-size: 3rem;
+      margin-bottom: 25px;
+    }
+
+    .hero p {
+      font-size: 1.2rem;
+      max-width: 650px;
+      margin-bottom: 40px;
+    }
+
+    .btn {
+      display: inline-block;
+      background: linear-gradient(90deg, var(--verde), var(--verde-claro));
+      color: #fff;
+      padding: 16px 36px;
+      border-radius: 40px;
+      text-decoration: none;
+      font-weight: bold;
+      font-size: 1rem;
+    }
+
+    /* SECTIONS */
+    section {
+      padding: 110px 10%;
+    }
+
+    section h2 {
+      text-align: center;
+      font-size: 2.4rem;
+      color: var(--azul-escuro);
+      margin-bottom: 70px;
+    }
+
+    /* ANIMATION */
+    .reveal {
+      opacity: 0;
+      transform: translateY(60px);
+      transition: all 0.9s ease;
+    }
+
+    .reveal.active {
+      opacity: 1;
+      transform: translateY(0);
+    }
+
+    /* GRID */
+    .grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 40px;
+    }
+
+    .card {
+      background: #fff;
+      padding: 40px 35px;
+      border-radius: 16px;
+      box-shadow: 0 20px 50px rgba(0,0,0,0.08);
+    }
+
+    .card h3 {
+      color: var(--verde);
+      margin-bottom: 18px;
+      font-size: 1.25rem;
+    }
+
+    /* CLIENTES */
+    .clientes {
+      background: var(--cinza-bg);
+      text-align: center;
+    }
+
+    .clientes img {
+      max-width: 250px; /* ajusta o tamanho das logos */
+      margin: 15px 10px;
+      display: inline-block;
+    }
+
+    /* CONTATO */
+    .contato {
+      background: linear-gradient(135deg, var(--azul-escuro), var(--azul-medio));
+      color: #fff;
+      text-align: center;
+    }
+
+    .contato p {
+      font-size: 1.15rem;
+      margin-bottom: 12px;
+    }
+
+    /* WHATSAPP FLOAT */
+    .whatsapp {
+      position: fixed;
+      right: 25px;
+      bottom: 25px;
+      background: #25D366;
+      color: #fff;
+      padding: 14px 22px;
+      border-radius: 40px;
+      font-weight: bold;
+      text-decoration: none;
+      box-shadow: 0 10px 30px rgba(0,0,0,0.25);
+      z-index: 999;
+    }
+
+    footer {
+      background: #081F35;
+      color: #fff;
+      text-align: center;
+      padding: 25px;
+      font-size: 0.9rem;
+    }
+
+    @media (max-width: 900px) {
+      .hero {
+        grid-template-columns: 1fr;
+        text-align: center;
+      }
+    }
+  </style>
+</head>
+<body>
+
+<header>
+  <img src="imagens/logo-kadosh.png" alt="Kadosh Gestão em SST">
+  <nav>
+    <a href="#sobre">Sobre</a>
+    <a href="#servicos">Serviços</a>
+    <a href="#cursos">Cursos</a>
+    <a href="#clientes">Clientes</a>
+    <a href="#contato">Contato</a>
+  </nav>
+</header>
+
+<section class="hero" id="sobre">
+  <video autoplay muted loop playsinline>
+    <source src="hero-video.mp4" type="video/mp4">
+  </video>
+
+  <div class="reveal">
+    <h1>Gestão estratégica em Segurança e Saúde do Trabalho</h1>
+    <p>
+      Atendemos empresas de médio e grande porte com foco em conformidade legal,
+      prevenção de riscos, redução de passivos trabalhistas e suporte completo em fiscalizações.
+    </p>
+    <a class="btn" href="#contato">Fale com nossos especialistas</a>
+  </div>
+</section>
+
+<section id="servicos">
+  <h2>Serviços Técnicos</h2>
+  <div class="grid">
+    <div class="card reveal"><h3>PGR / GRO</h3><p>Programa de Gerenciamento de Riscos conforme NR-01.</p></div>
+    <div class="card reveal"><h3>PCMSO</h3><p>Gestão completa do Programa de Controle Médico Ocupacional.</p></div>
+    <div class="card reveal"><h3>LTCAT</h3><p>Laudo Técnico das Condições Ambientais do Trabalho.</p></div>
+    <div class="card reveal"><h3>Laudos Técnicos</h3><p>Insalubridade, Periculosidade e Ergonomia.</p></div>
+    <div class="card reveal"><h3>Auditorias</h3><p>Auditorias internas e acompanhamento em fiscalizações.</p></div>
+    <div class="card reveal"><h3>Gestão de EPI</h3><p>Controle, entrega, treinamento e rastreabilidade.</p></div>
+  </div>
+</section>
+
+<section id="cursos">
+  <h2>Cursos e Treinamentos</h2>
+  <div class="grid">
+    <div class="card reveal">NR-01 • GRO e PGR</div>
+    <div class="card reveal">NR-06 • EPI</div>
+    <div class="card reveal">NR-10 • Eletricidade</div>
+    <div class="card reveal">NR-12 • Máquinas e Equipamentos</div>
+    <div class="card reveal">NR-18 • Construção Civil</div>
+    <div class="card reveal">NR-33 • Espaço Confinado</div>
+    <div class="card reveal">NR-35 • Trabalho em Altura</div>
+    <div class="card reveal">CIPA • Brigada • Primeiros Socorros</div>
+  </div>
+</section>
+
+<section class="clientes" id="clientes">
+  <h2>Clientes Atendidos</h2>
+  <p>Empresas privadas, indústrias e órgãos públicos, incluindo atuação junto à Prefeitura de Goiânia.</p>
+  <!-- Adicionando imagens dos clientes -->
+  <img src="imagens/clientes.png" alt="Logos dos Clientes">
+</section>
+
+<section class="contato" id="contato">
+  <h2>Contato</h2>
+  <p>Email: <strong>kadoshconsultoriasst@gmail.com</strong></p>
+  <p>WhatsApp: <strong>(62) 9 9656-2738</strong></p>
+  <p>Instagram: <strong>@kadoshconsultoriasst</strong></p>
+</section>
+
+<a class="whatsapp" href="https://wa.me/556296562738" target="_blank">💬 Fale com a Kadosh</a>
+
+<footer>
+  <p>© 2026 Kadosh Gestão em SST — Excelência, conformidade e segurança.</p>
+</footer>
+
+<script>
+  const reveals = document.querySelectorAll('.reveal');
+  window.addEventListener('scroll', () => {
+    reveals.forEach(el => {
+      const top = el.getBoundingClientRect().top;
+      if (top < window.innerHeight - 100) el.classList.add('active');
+    });
+  });
+</script>
+
+</body>
+</html>
